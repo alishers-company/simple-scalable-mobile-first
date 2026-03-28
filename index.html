@@ -3,154 +3,345 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>simple, scalable, mobile-first</title>
+    <title>simple, scalable, mobile-first — Truck Delivery On Demand</title>
     <meta
       id="meta-description"
       name="description"
-      content="simple, scalable, mobile-first for drivers and web-first for businesses"
+      content="simple, scalable, mobile-first for drivers and web-first for businesses. Connect truck drivers and clients instantly."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body data-starter="dashboard">
-    <div class="dash-shell" data-testid="site-shell">
-      <aside class="dash-sidebar">
-        <div class="sidebar-brand">
-          <div class="brand-mark">s</div>
-          <span class="brand-name">simple, scalable, mobile-first</span>
-        </div>
-        <nav class="sidebar-nav" data-testid="primary-nav">
-    <a href="#home" class="sidebar-item active">
-      <span class="sidebar-icon">&#9776;</span>
-      <span>Home</span>
-    </a>
-    <a href="#driver-accepts-request-gets-client-info-and-navigates-to-pickup-location" class="sidebar-item ">
-      <span class="sidebar-icon">&#9635;</span>
-      <span>Driver accepts request, gets client info, and navigates to pickup location</span>
-    </a>
-    <a href="#metrics" class="sidebar-item ">
-      <span class="sidebar-icon">&#9783;</span>
-      <span>Metrics</span>
-    </a></nav>
-        <div class="sidebar-footer">
-          <div class="sidebar-user">
-            <div class="user-avatar">d</div>
-            <div>
-              <p class="user-name">drivers</p>
-              <p class="user-role">Admin</p>
+  <body>
+    <div id="site-shell" data-testid="site-shell">
+
+      <!-- ===== NAVIGATION ===== -->
+      <header class="site-header">
+        <nav id="primary-nav" data-testid="primary-nav" class="nav-inner" role="navigation" aria-label="Main navigation">
+          <a href="#home" class="nav-brand" aria-label="simple, scalable, mobile-first home">
+            <span class="brand-mark" aria-hidden="true">S</span>
+            <span class="brand-name">LoadLink</span>
+          </a>
+          <button
+            id="mobile-nav-toggle"
+            data-testid="mobile-nav-toggle"
+            class="hamburger"
+            aria-expanded="false"
+            aria-controls="nav-links"
+            aria-label="Toggle navigation"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <ul id="nav-links" class="nav-links" role="list">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#driver-flow" class="nav-link">Driver accepts request, gets client info, and navigates to pickup location</a></li>
+            <li><a href="#metrics" class="nav-link">Metrics</a></li>
+          </ul>
+          <a href="#cta-section" class="btn-primary btn-sm nav-cta" aria-label="Get started with LoadLink">Get Started</a>
+        </nav>
+      </header>
+
+      <!-- ===== HERO ===== -->
+      <section id="home">
+        <div id="hero-section" data-testid="hero-section" class="hero">
+          <div class="hero-inner">
+            <span class="hero-badge">Mobile-First · Scalable · Simple</span>
+            <h1 class="hero-headline">
+              Delivery logistics,<br>done <em>right</em>.
+            </h1>
+            <p class="hero-sub">
+              Simple, scalable, <strong>mobile-first for drivers</strong> to receive and manage delivery requests on the go.
+              <strong>Web-first for businesses</strong> to find verified truck drivers nearby in seconds.
+            </p>
+            <div class="hero-actions">
+              <a id="primary-cta" data-testid="primary-cta" href="#cta-section" class="btn-primary btn-large">Request a Driver</a>
+              <a href="#driver-flow" class="btn-secondary btn-large">See How It Works</a>
+            </div>
+            <div class="hero-metrics" aria-label="Key statistics">
+              <div class="hero-stat">
+                <span class="stat-value">2,847</span>
+                <span class="stat-label">Active Drivers</span>
+              </div>
+              <div class="hero-stat">
+                <span class="stat-value">94%</span>
+                <span class="stat-label">Match Rate</span>
+              </div>
+              <div class="hero-stat">
+                <span class="stat-value">&lt;4 min</span>
+                <span class="stat-label">Avg. Response</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <div class="phone-notif">
+                  <span class="notif-icon">📦</span>
+                  <div>
+                    <p class="notif-title">New delivery request</p>
+                    <p class="notif-sub">3.2 miles away · $74</p>
+                  </div>
+                </div>
+                <div class="phone-map">
+                  <div class="map-dot origin"></div>
+                  <div class="map-line"></div>
+                  <div class="map-dot dest"></div>
+                </div>
+                <div class="phone-actions">
+                  <button class="phone-btn decline" tabindex="-1">Decline</button>
+                  <button class="phone-btn accept" tabindex="-1">Accept ✓</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </aside>
+      </section>
 
-      <div class="dash-main">
-        <header class="dash-topbar">
-          <button class="menu-toggle" data-testid="mobile-nav-toggle" aria-expanded="false"><span></span><span></span><span></span></button>
-          <div>
-            <h1 id="page-title" class="dash-page-title">Dashboard</h1>
-            <p class="dash-page-desc">simple, scalable, mobile-first for drivers and web-first for businesses</p>
+      <!-- ===== FEATURE GRID ===== -->
+      <section id="features" class="features">
+        <div class="container">
+          <p class="section-label">What we do</p>
+          <h2 class="section-title">Everything you need, nothing you don't</h2>
+          <div id="feature-grid" data-testid="feature-grid" class="feature-grid-inner">
+            <article class="feature-card">
+              <div class="feature-icon" aria-hidden="true">📱</div>
+              <h3>Mobile app for drivers</h3>
+              <p>Drivers receive and manage delivery requests right on their phone. Accept jobs, view routes, and communicate with clients — all in one tap.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon" aria-hidden="true">🔍</div>
+              <h3>Drivers find Clients</h3>
+              <p>Drivers browse open delivery requests in their area, filter by distance and payout, and connect directly with businesses that need them most.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon" aria-hidden="true">📍</div>
+              <h3>Clients find Truck Drivers nearby</h3>
+              <p>Businesses post a request and instantly see available truck drivers nearby. No phone calls, no waiting — just fast, reliable matches on demand.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon" aria-hidden="true">🗺️</div>
+              <h3>Navigate to Pickup</h3>
+              <p>Once a driver accepts, they get full client info and one-tap navigation to the pickup location. Zero friction from accept to arrival on site.</p>
+            </article>
           </div>
-          <div class="dash-topbar-actions">
-            <button class="btn-secondary btn-sm" type="button" data-testid="interactive-demo">Export</button>
-            <a class="btn-primary btn-sm" href="#" data-testid="primary-cta">+ New</a>
-          </div>
-        </header>
+        </div>
+      </section>
 
-        <main class="dash-content" data-testid="hero-section">
-          <section class="metrics-grid" data-testid="feature-grid">
-      <div class="metric-card">
-        <p class="metric-label">Mobile app for drivers to receive and manage delivery requests</p>
-        <p class="metric-value">2,847</p>
-        <span class="metric-delta positive">+12.5%</span>
-      </div>
-      <div class="metric-card">
-        <p class="metric-label">Drivers being able to find Clients</p>
-        <p class="metric-value">94.2%</p>
-        <span class="metric-delta positive">+3.1%</span>
-      </div>
-      <div class="metric-card">
-        <p class="metric-label">Clients being able to find Truck drivers nearby</p>
-        <p class="metric-value">1,203</p>
-        <span class="metric-delta negative">-2.4%</span>
-      </div>
-      <div class="metric-card">
-        <p class="metric-label">Driver accepts request, gets client info, and navigates to pickup location</p>
-        <p class="metric-value">348</p>
-        <span class="metric-delta positive">+18.7%</span>
-      </div></section>
+      <!-- ===== INTERACTIVE DEMO: Driver Flow ===== -->
+      <section id="driver-flow" class="driver-flow-section">
+        <div class="container">
+          <p class="section-label">Driver experience</p>
+          <h2 class="section-title">Driver accepts request, gets client info, and navigates to pickup location</h2>
+          <p class="section-sub">Walk through the full driver flow — from receiving a request to navigating to pickup — in three steps.</p>
 
-          <div class="dash-two-col">
-            <section class="dash-card dash-card-wide">
-              <div class="card-header">
-                <h3>Overview</h3>
-                <div class="card-tabs">
-                  <button class="card-tab active">Week</button>
-                  <button class="card-tab">Month</button>
-                  <button class="card-tab">Year</button>
+          <div id="interactive-demo" data-testid="interactive-demo" class="demo-wrapper" role="region" aria-label="Interactive driver flow demo">
+            <div class="demo-steps" role="tablist" aria-label="Driver flow steps">
+              <button class="step-btn active" data-step="0" role="tab" aria-selected="true" aria-controls="demo-screen-0">
+                <span class="step-num" aria-hidden="true">1</span>
+                <span>Request Arrives</span>
+              </button>
+              <button class="step-btn" data-step="1" role="tab" aria-selected="false" aria-controls="demo-screen-1">
+                <span class="step-num" aria-hidden="true">2</span>
+                <span>Accept &amp; View Client</span>
+              </button>
+              <button class="step-btn" data-step="2" role="tab" aria-selected="false" aria-controls="demo-screen-2">
+                <span class="step-num" aria-hidden="true">3</span>
+                <span>Navigate to Pickup</span>
+              </button>
+            </div>
+
+            <div class="demo-phone-wrap">
+              <!-- Step 0: Request arrives -->
+              <div class="demo-screen active" id="demo-screen-0" data-screen="0" role="tabpanel">
+                <div class="ds-header">
+                  <p class="ds-time">9:41 AM</p>
+                  <p class="ds-label">New Request</p>
+                </div>
+                <div class="ds-request-card">
+                  <div class="ds-requester">
+                    <div class="ds-avatar" aria-hidden="true">BW</div>
+                    <div>
+                      <p class="ds-name">BuildWell Co.</p>
+                      <p class="ds-type">Construction materials · 1.2 tons</p>
+                    </div>
+                  </div>
+                  <div class="ds-details">
+                    <div class="ds-detail-item">
+                      <span class="ds-detail-icon" aria-hidden="true">📍</span>
+                      <span>3.2 miles away</span>
+                    </div>
+                    <div class="ds-detail-item">
+                      <span class="ds-detail-icon" aria-hidden="true">⏱️</span>
+                      <span>Pickup in ~15 min</span>
+                    </div>
+                    <div class="ds-detail-item">
+                      <span class="ds-detail-icon" aria-hidden="true">💵</span>
+                      <span>$74.00 payout</span>
+                    </div>
+                  </div>
+                  <div class="ds-cta-row">
+                    <button class="ds-btn-decline" type="button">Decline</button>
+                    <button class="ds-btn-accept demo-next-btn" type="button">Accept Job →</button>
+                  </div>
                 </div>
               </div>
-              <div class="chart-placeholder">
-                <svg viewBox="0 0 400 120" class="chart-svg">
-                  <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
-                  <path d="M0,100 C40,90 80,60 120,65 C160,70 200,30 240,35 C280,40 320,15 360,20 L400,10 L400,120 L0,120Z" fill="url(#cg)"/>
-                  <path d="M0,100 C40,90 80,60 120,65 C160,70 200,30 240,35 C280,40 320,15 360,20 L400,10" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-            </section>
 
-            <section class="dash-card">
-              <div class="card-header"><h3>Activity</h3></div>
-              <div class="activity-list">
-                
-                <div class="activity-item">
-                  <span class="activity-dot"></span>
-                  <span>Driver accepts request, gets client info, and navigates to pickup location updated</span>
-                  <span class="activity-time">1m</span>
+              <!-- Step 1: Client info after accepting -->
+              <div class="demo-screen" id="demo-screen-1" data-screen="1" role="tabpanel">
+                <div class="ds-header">
+                  <p class="ds-time">9:42 AM</p>
+                  <p class="ds-label ds-label-success">Job Accepted ✓</p>
                 </div>
-                
+                <div class="ds-client-info">
+                  <p class="ds-section-head">Client Details</p>
+                  <div class="ds-client-row">
+                    <div class="ds-avatar large" aria-hidden="true">BW</div>
+                    <div>
+                      <p class="ds-name">BuildWell Co.</p>
+                      <p class="ds-phone">+1 (555) 210-4892</p>
+                    </div>
+                  </div>
+                  <div class="ds-info-grid">
+                    <div class="ds-info-item">
+                      <p class="ds-info-label">Pickup Address</p>
+                      <p class="ds-info-val">142 Industrial Blvd, Bay 3</p>
+                    </div>
+                    <div class="ds-info-item">
+                      <p class="ds-info-label">Drop-off</p>
+                      <p class="ds-info-val">88 Commerce St, Unit 7</p>
+                    </div>
+                    <div class="ds-info-item">
+                      <p class="ds-info-label">Load</p>
+                      <p class="ds-info-val">Construction materials, 1.2 tons</p>
+                    </div>
+                    <div class="ds-info-item">
+                      <p class="ds-info-label">Special Notes</p>
+                      <p class="ds-info-val">Forklift available at pickup</p>
+                    </div>
+                  </div>
+                  <button class="ds-btn-accept demo-next-btn" type="button" style="width:100%;margin-top:14px;">Navigate to Pickup →</button>
+                </div>
               </div>
-            </section>
-          </div>
 
-          <section class="dash-card">
-            <div class="card-header"><h3>Recent Items</h3><button class="btn-link">View all</button></div>
-            <table class="dash-table">
-              <thead><tr><th>Name</th><th>Owner</th><th>Status</th><th>Updated</th></tr></thead>
-              <tbody>
-      <tr>
-        <td><span class="table-name">Mobile app for drivers to receive and manage delivery requests</span></td>
-        <td>drivers</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td class="table-date">1h ago</td>
-      </tr>
-      <tr>
-        <td><span class="table-name">Drivers being able to find Clients</span></td>
-        <td>businesses</td>
-        <td><span class="status-badge status-pending">Pending</span></td>
-        <td class="table-date">2h ago</td>
-      </tr>
-      <tr>
-        <td><span class="table-name">Clients being able to find Truck drivers nearby</span></td>
-        <td>drivers</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td class="table-date">3h ago</td>
-      </tr>
-      <tr>
-        <td><span class="table-name">Driver accepts request, gets client info, and navigates to pickup location</span></td>
-        <td>businesses</td>
-        <td><span class="status-badge status-review">Review</span></td>
-        <td class="table-date">4h ago</td>
-      </tr>
-      <tr>
-        <td><span class="table-name">Responsive layout</span></td>
-        <td>drivers</td>
-        <td><span class="status-badge status-active">Active</span></td>
-        <td class="table-date">5h ago</td>
-      </tr></tbody>
-            </table>
-          </section>
-        </main>
-      </div>
-    </div>
+              <!-- Step 2: Navigation -->
+              <div class="demo-screen" id="demo-screen-2" data-screen="2" role="tabpanel">
+                <div class="ds-header">
+                  <p class="ds-time">9:43 AM</p>
+                  <p class="ds-label">Navigating</p>
+                </div>
+                <div class="ds-nav-view">
+                  <div class="ds-map-sim" aria-label="Map showing route from current location to pickup">
+                    <div class="ds-map-route">
+                      <div class="ds-map-pin you">You</div>
+                      <div class="ds-route-line"></div>
+                      <div class="ds-map-pin pickup">Pickup</div>
+                    </div>
+                  </div>
+                  <div class="ds-nav-card">
+                    <div class="ds-nav-row">
+                      <span class="ds-nav-icon" aria-hidden="true">🧭</span>
+                      <div>
+                        <p class="ds-nav-dir">Head north on Industrial Blvd</p>
+                        <p class="ds-nav-dist">0.4 mi · Turn right on Commerce Ave</p>
+                      </div>
+                    </div>
+                    <div class="ds-eta-row">
+                      <span class="ds-eta">ETA: 7 min</span>
+                      <span class="ds-dist-total">3.2 mi remaining</span>
+                    </div>
+                  </div>
+                  <button class="ds-btn-accept ds-btn-arrive" type="button">Mark as Arrived</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-controls" aria-label="Demo navigation controls">
+              <button id="demo-prev" class="demo-nav-btn" type="button" disabled aria-label="Previous step">← Back</button>
+              <span class="demo-step-indicator" aria-live="polite">Step <span id="demo-step-num">1</span> of 3</span>
+              <button id="demo-next" class="demo-nav-btn" type="button" aria-label="Next step">Next →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHO IT'S FOR ===== -->
+      <section id="who-its-for" class="who-section">
+        <div class="container">
+          <p class="section-label">Who it's for</p>
+          <h2 class="section-title">Built for both sides of the road</h2>
+          <div class="who-grid">
+            <article class="who-card driver-card">
+              <div class="who-icon" aria-hidden="true">🚛</div>
+              <h3>For Drivers</h3>
+              <p>Turn your truck into steady income. Get notified of nearby jobs, accept with one tap, and navigate straight to the pickup. No dispatchers, no guesswork.</p>
+              <ul class="who-list" aria-label="Driver benefits">
+                <li>Instant delivery request notifications on your phone</li>
+                <li>One-tap accept with full client details</li>
+                <li>Built-in navigation to every pickup location</li>
+                <li>Track your earnings and history in real time</li>
+              </ul>
+              <a href="#cta-section" class="btn-primary">Download the App</a>
+            </article>
+            <article class="who-card business-card">
+              <div class="who-icon" aria-hidden="true">🏢</div>
+              <h3>For Businesses</h3>
+              <p>Post a delivery request and watch available truck drivers appear on your map. No contracts, no fleets — just reliable drivers on demand via your browser.</p>
+              <ul class="who-list" aria-label="Business benefits">
+                <li>Post a request in under 60 seconds</li>
+                <li>See verified drivers near your exact location</li>
+                <li>Real-time tracking from pickup to drop-off</li>
+                <li>Invoicing and delivery history in your dashboard</li>
+              </ul>
+              <a href="#cta-section" class="btn-secondary">Start Posting Jobs</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== METRICS ===== -->
+      <section id="metrics" class="metrics-section">
+        <div class="container">
+          <p class="section-label">By the numbers</p>
+          <h2 class="section-title">Trusted by drivers and businesses</h2>
+          <div id="metrics-grid" class="metrics-bar" aria-label="Platform metrics" aria-live="polite">
+            <!-- Populated from assets/metrics.json -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PRIMARY CTA ===== -->
+      <section id="cta-section" class="cta-section">
+        <div class="container">
+          <div class="cta-inner">
+            <h2>Ready to simplify your deliveries?</h2>
+            <p>Join thousands of drivers and businesses already on the platform. Get started in minutes — no contracts, no commitments.</p>
+            <div class="cta-actions">
+              <a href="#" class="btn-primary btn-large">Get Started Free</a>
+              <a href="#driver-flow" class="btn-secondary btn-large">See How It Works</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FOOTER ===== -->
+      <footer id="footer-section" data-testid="footer-section" class="footer">
+        <div class="container">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <span class="brand-mark" aria-hidden="true">S</span>
+              <span class="brand-name">simple, scalable, mobile-first</span>
+            </div>
+            <nav class="footer-links" aria-label="Footer navigation">
+              <a href="#home">Home</a>
+              <a href="#driver-flow">How It Works</a>
+              <a href="#metrics">Metrics</a>
+              <a href="#who-its-for">Who It's For</a>
+            </nav>
+            <p class="footer-copy">&copy; 2026 simple, scalable, mobile-first. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /site-shell -->
     <script src="./script.js"></script>
   </body>
 </html>
